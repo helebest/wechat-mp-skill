@@ -90,3 +90,8 @@ When adding new features that call WeChat server APIs:
 Current permission status:
 - ✅ No verification needed: `material/*`, `media/*`, `draft/*`
 - ❌ Verification required: `freepublish/*`, `datacube/*`
+
+## Release Guidelines
+
+- **GitHub Release title format**: `wechat-mp-skill vx.y.z` (e.g., `wechat-mp-skill v0.1.0`)
+- **Tag format**: `vx.y.z` (e.g., `v0.1.0`)
