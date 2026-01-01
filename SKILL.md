@@ -1,6 +1,6 @@
 ---
 name: wechat-mp-skill
-description: 微信公众号管理工具，支持素材管理（上传/获取/删除图片、视频、语音等永久和临时素材）、草稿管理（创建/编辑/删除/发布草稿）和数据统计（用户/图文/消息数据分析）。适用于公众号创作者通过 Claude Code 进行内容管理和发布流程自动化。触发场景：用户提到微信公众号、公众号素材、公众号草稿、发布文章、上传图片到公众号、公众号数据统计等。
+description: 微信公众号管理工具集，支持素材管理（上传/获取/删除图片、视频、语音等永久和临时素材）、草稿管理（创建/编辑/删除/发布草稿）和数据统计（用户/图文/消息数据分析）。适用于公众号创作者通过 Claude Code 进行内容管理和发布流程自动化。触发场景：用户提到微信公众号、公众号素材、公众号草稿、发布文章、上传图片到公众号、公众号数据统计等。
 ---
 
 # WeChat MP Skill | 微信公众号技能
@@ -116,21 +116,21 @@ summary = sm.get_yesterday_summary()
 week_data = sm.get_week_summary()
 
 # 用户数据
-user_data = sm.get_user_summary("2024-01-01", "2024-01-07")  # 最大7天
-cumulate = sm.get_user_cumulate("2024-01-01", "2024-01-07")
+user_data = sm.get_user_summary("2026-01-01", "2026-01-07")  # 最大7天
+cumulate = sm.get_user_cumulate("2026-01-01", "2026-01-07")
 
 # 图文数据
-articles = sm.get_article_summary("2024-01-01")  # 单日
-total = sm.get_article_total("2024-01-01")
-read_hour = sm.get_user_read_hour("2024-01-01")  # 分时阅读
-share_data = sm.get_user_share("2024-01-01", "2024-01-07")
+articles = sm.get_article_summary("2026-01-01")  # 单日
+total = sm.get_article_total("2026-01-01")
+read_hour = sm.get_user_read_hour("2026-01-01")  # 分时阅读
+share_data = sm.get_user_share("2026-01-01", "2026-01-07")
 
 # 消息数据
-msg_data = sm.get_upstream_msg("2024-01-01", "2024-01-07")
-msg_hour = sm.get_upstream_msg_hour("2024-01-01")
+msg_data = sm.get_upstream_msg("2026-01-01", "2026-01-07")
+msg_hour = sm.get_upstream_msg_hour("2026-01-01")
 
 # 接口数据
-interface = sm.get_interface_summary("2024-01-01", "2024-01-30")
+interface = sm.get_interface_summary("2026-01-01", "2026-01-30")
 ```
 
 ### 5. 完整发布流程示例
