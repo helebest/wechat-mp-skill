@@ -10,24 +10,22 @@
 
 ## 安装
 
-### 方式一：下载 .skill 文件（推荐）
+### 方式一：下载并解压（推荐）
 
-1. 从 [Releases](https://github.com/helebest/wechat-mp-skill/releases) 下载最新的 `wechat-mp-skill.skill` 文件
-2. 在 Claude Code 中使用 `/install-skill` 命令安装
+1. 从 [Releases](https://github.com/helebest/wechat-mp-skill/releases) 下载 `wechat-mp-skill.zip`
+2. 解压到 `~/.claude/skills/wechat-mp-skill/` 目录
 
 ### 方式二：克隆仓库
 
 ```bash
-git clone https://github.com/helebest/wechat-mp-skill.git
-cd wechat-mp-skill
-uv sync  # 安装依赖
+git clone https://github.com/helebest/wechat-mp-skill.git ~/.claude/skills/wechat-mp-skill
 ```
 
-### 本地构建 .skill 包
+### 本地构建
 
 ```bash
 uv run python build_skill.py
-# 输出: dist/wechat-mp-skill-x.x.x.skill
+# 输出: dist/wechat-mp-skill-x.x.x.zip
 ```
 
 ## 配置

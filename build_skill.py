@@ -2,7 +2,7 @@
 """
 wechat-mp-skill 打包脚本
 
-将 skill 打包为 .skill 文件（zip 格式），用于分发和安装。
+将 skill 打包为 .zip 文件，用于分发和安装。
 
 用法：
     uv run python build_skill.py
@@ -18,7 +18,7 @@ from pathlib import Path
 from datetime import datetime
 
 
-# 需要包含在 .skill 包中的文件和目录
+# 需要包含在 .zip 包中的文件和目录
 INCLUDE_PATTERNS = [
     "SKILL.md",
     "scripts/*.py",
@@ -99,14 +99,14 @@ def collect_files(root: Path) -> list[tuple[Path, str]]:
 
 def build_skill(output_dir: Path, version: str = None) -> Path:
     """
-    构建 .skill 包
+    构建 .zip 包
 
     Args:
         output_dir: 输出目录
         version: 版本号（可选，默认从 pyproject.toml 读取）
 
     Returns:
-        生成的 .skill 文件路径
+        生成的 .zip 文件路径
     """
     root = Path(__file__).parent
 
@@ -120,7 +120,7 @@ def build_skill(output_dir: Path, version: str = None) -> Path:
 
     # 生成输出文件名
     skill_name = metadata["name"]
-    output_file = output_dir / f"{skill_name}-{version}.skill"
+    output_file = output_dir / f"{skill_name}-{version}.zip"
 
     # 收集文件
     files = collect_files(root)
@@ -151,7 +151,7 @@ def build_skill(output_dir: Path, version: str = None) -> Path:
     print(f"\n构建完成! 文件大小: {size_kb:.1f} KB")
 
     # 同时创建不带版本号的文件（便于下载）
-    latest_file = output_dir / f"{skill_name}.skill"
+    latest_file = output_dir / f"{skill_name}.zip"
     if latest_file.exists():
         latest_file.unlink()
     import shutil
@@ -163,7 +163,7 @@ def build_skill(output_dir: Path, version: str = None) -> Path:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="构建 wechat-mp-skill .skill 包"
+        description="构建 wechat-mp-skill .zip 包"
     )
     parser.add_argument(
         "--output", "-o",
