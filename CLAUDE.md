@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**wechat-mp-skill (微信公众号技能)** - A Claude Code skill for managing WeChat Official Accounts. Provides Python modules for interacting with the WeChat MP API to manage materials (素材), drafts (草稿), and statistics (数据统计).
+**WeChat MP Skill | 微信公众号技能** - A Claude Code skill for managing WeChat Official Accounts. Provides Python modules for interacting with the WeChat MP API to manage materials (素材), drafts (草稿), and statistics (数据统计).
 
 ## Configuration
 

@@ -1,7 +1,7 @@
 [project]
 name = "wechat-mp-skill"
 version = "0.1.0"
-description = "微信公众号技能 - Claude Code skill for WeChat Official Account management"
+description = "WeChat MP Skill | 微信公众号技能 - Claude Code skill for WeChat Official Account management"
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }

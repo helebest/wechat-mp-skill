@@ -1,6 +1,6 @@
-# WeChat MP Skill
+# WeChat MP Skill | 微信公众号技能
 
-微信公众号管理 Skill，适用于 Claude Code。帮助公众号创作者通过 AI 进行内容管理和发布流程自动化。
+适用于 Claude Code 的微信公众号管理技能。帮助公众号创作者通过 AI 进行内容管理和发布流程自动化。
 
 ## 功能特性
 
