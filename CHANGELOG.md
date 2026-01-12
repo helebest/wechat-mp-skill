@@ -5,6 +5,26 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，
 版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [0.2.0] - 2026-01-12
+
+### 变更
+
+- **重构** - 使用 python-dotenv 替换自定义 .env 加载实现
+  - 删除自定义 `load_dotenv()` 函数，改用 `python-dotenv` 库
+  - 使用 `find_dotenv(usecwd=True)` 从当前工作目录向上查找 `.env` 文件
+  - 保持依赖声明与实际使用一致
+
+### 新增
+
+- **跨项目支持** - Skill 现可在非 Python 项目中使用
+  - 打包时包含 `pyproject.toml`，支持 `uv run --project` 方式执行
+  - 新增"执行环境"文档说明跨项目使用方式
+  - 自动从执行命令时的工作目录查找 `.env` 配置
+
+### 修复
+
+- 更新测试用例以适配新的 python-dotenv 集成
+
 ## [0.1.0] - 2026-01-01
 
 ### 新增
