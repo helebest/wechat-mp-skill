@@ -21,6 +21,7 @@ from datetime import datetime
 # 需要包含在 .zip 包中的文件和目录
 INCLUDE_PATTERNS = [
     "SKILL.md",
+    "pyproject.toml",
     "scripts/*.py",
     "references/*.md",
 ]

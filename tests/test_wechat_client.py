@@ -32,7 +32,7 @@ class TestWeChatClientInit:
     def test_init_missing_credentials(self):
         """测试缺少凭证时抛出异常"""
         with patch.dict(os.environ, {"HOME": "/tmp", "USERPROFILE": "C:\\Users\\test"}, clear=True):
-            with patch("scripts.wechat_client.Path.exists", return_value=False):
+            with patch("scripts.wechat_client.find_dotenv", return_value=""):
                 from scripts import WeChatClient
                 with pytest.raises(ValueError, match="请设置 WECHAT_APPID"):
                     WeChatClient()
@@ -165,11 +165,11 @@ class TestApiRequest:
 
 
 class TestLoadDotenv:
-    """测试 .env 文件加载"""
+    """测试 .env 文件加载（python-dotenv 集成）"""
 
     @pytest.mark.unit
-    def test_load_dotenv_function(self, tmp_path):
-        """测试 load_dotenv 函数"""
+    def test_load_dotenv_integration(self, tmp_path):
+        """测试 python-dotenv 集成加载 .env 文件"""
         # 创建临时 .env 文件
         env_file = tmp_path / ".env"
         env_file.write_text('TEST_VAR="test_value"\n')

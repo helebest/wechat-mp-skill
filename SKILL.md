@@ -7,6 +7,23 @@ description: 微信公众号管理工具集，支持素材管理（上传/获取
 
 适用于 Claude Code 的微信公众号管理技能，通过微信公众号 API 管理素材和草稿，实现内容管理自动化。
 
+## 执行环境
+
+此 skill 自带 Python 依赖配置，**适用于任何项目**（不限于 Python 项目）。
+
+**执行方式**：所有 Python 代码通过 `uv run --project` 执行：
+
+```bash
+# SKILL_DIR 为 skill 安装目录，通常是 .claude/skills/wechat-mp-skill
+uv run --project $SKILL_DIR python -c "
+from scripts.wechat_client import WeChatClient
+client = WeChatClient()
+print(client.get_access_token()[:20] + '...')
+"
+```
+
+> **配置读取**：skill 自动从**执行命令时的工作目录**向上查找 `.env` 文件。确保从项目根目录执行，或已设置环境变量。
+
 ## 前置准备
 
 用户需提供 AppID 和 AppSecret，支持三种方式（优先级从高到低）：

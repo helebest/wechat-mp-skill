@@ -10,46 +10,7 @@ import json
 import requests
 from typing import Optional, Dict, Any, BinaryIO
 from pathlib import Path
-
-
-def load_dotenv(env_path: Optional[str] = None) -> None:
-    """
-    从 .env 文件加载环境变量
-    
-    Args:
-        env_path: .env 文件路径，默认查找当前目录和父目录
-    """
-    if env_path:
-        paths = [Path(env_path)]
-    else:
-        # 查找当前目录和父目录的 .env 文件
-        cwd = Path.cwd()
-        paths = [
-            cwd / ".env",
-            cwd.parent / ".env",
-            Path.home() / ".env"
-        ]
-    
-    for path in paths:
-        if path.exists():
-            with open(path, "r", encoding="utf-8") as f:
-                for line in f:
-                    line = line.strip()
-                    # 跳过空行和注释
-                    if not line or line.startswith("#"):
-                        continue
-                    # 解析 KEY=VALUE
-                    if "=" in line:
-                        key, _, value = line.partition("=")
-                        key = key.strip()
-                        value = value.strip()
-                        # 移除引号
-                        if value and value[0] in ('"', "'") and value[-1] == value[0]:
-                            value = value[1:-1]
-                        # 不覆盖已存在的环境变量
-                        if key and key not in os.environ:
-                            os.environ[key] = value
-            break  # 只加载第一个找到的 .env 文件
+from dotenv import load_dotenv, find_dotenv
 
 
 class WeChatAPIError(Exception):
@@ -82,8 +43,8 @@ class WeChatClient:
             token_cache_dir: token 缓存目录，默认当前目录
             env_file: .env 文件路径，默认自动查找
         """
-        # 自动加载 .env 文件
-        load_dotenv(env_file)
+        # 自动加载 .env 文件（从当前目录向上查找）
+        load_dotenv(env_file or find_dotenv(usecwd=True))
         
         self.appid = appid or os.environ.get("WECHAT_APPID")
         self.appsecret = appsecret or os.environ.get("WECHAT_APPSECRET")
