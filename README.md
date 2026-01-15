@@ -118,8 +118,6 @@ media_id = submit_html_draft(
 print(f'草稿创建成功: {media_id}')
 ```
 
-> 适合与 `markdown-to-wechat-html-skill` 配合使用，实现 Markdown → HTML → 微信草稿的完整流程。
-
 ## 模块说明
 
 | 模块 | 文件 | 功能 |
