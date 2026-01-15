@@ -23,6 +23,7 @@ scripts/
 ├── material_manager.py  # Permanent/temporary media: images, voice, video
 ├── draft_manager.py     # Draft CRUD, publishing workflow
 ├── stats_manager.py     # Analytics: user growth, article reads, messages
+├── html_submitter.py    # High-level HTML submission: auto image upload & draft creation
 └── __init__.py          # Exports all managers and convenience functions
 ```
 
@@ -40,7 +41,7 @@ sm = StatsManager(client)
 ## Key API Constraints
 
 - **Materials**: Images 10MB/100k limit, voice 2MB/1k, video 10MB/1k, thumb 64KB
-- **Articles**: Title ≤32 chars, author ≤16 chars, digest ≤128 chars, content <1MB/<20k chars
+- **Articles**: Title ≤64 chars, author ≤8 chars, digest ≤128 chars, content <1MB/<20k chars
 - **Stats**: Only historical data (yesterday or earlier). User/share max 7 days, article max 1 day, interface max 30 days
 - **Publishing Permission**: All `freepublish/*` APIs require WeChat-verified account (认证公众号). Unverified accounts will get error 48001.
 - **Stats Permission**: All `datacube/*` APIs require verification. Unverified accounts cannot access statistics.

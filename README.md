@@ -103,6 +103,23 @@ print(f"新增粉丝: {sum(u['new_user'] for u in yesterday['user'])}")
 week = sm.get_week_summary()
 ```
 
+### 一键提交 HTML 草稿
+
+```python
+from scripts import submit_html_draft
+
+# 自动解析 HTML 中的图片、上传、替换 URL、创建草稿
+media_id = submit_html_draft(
+    html_path='article.preview.html',
+    cover_path='cover.png',
+    author='作者名',
+    digest='文章摘要'
+)
+print(f'草稿创建成功: {media_id}')
+```
+
+> 适合与 `markdown-to-wechat-html-skill` 配合使用，实现 Markdown → HTML → 微信草稿的完整流程。
+
 ## 模块说明
 
 | 模块 | 文件 | 功能 |
@@ -111,6 +128,7 @@ week = sm.get_week_summary()
 | 素材管理 | `scripts/material_manager.py` | 永久/临时素材操作 |
 | 草稿管理 | `scripts/draft_manager.py` | 草稿 CRUD、发布 |
 | 数据统计 | `scripts/stats_manager.py` | 各类数据查询 |
+| HTML 提交 | `scripts/html_submitter.py` | 高级接口，自动处理图片上传 |
 
 ## API 文档
 

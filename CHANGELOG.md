@@ -5,6 +5,21 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，
 版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [0.3.0] - 2026-01-15
+
+### 新增
+
+- **HTML 提交高级接口** - 新增 `submit_html_draft()` 函数
+  - 一键提交 HTML 文章到草稿箱，自动处理图片上传
+  - 自动解析 HTML 中的本地图片路径（支持 `file:///`、相对路径、绝对路径）
+  - 自动从 `<title>` 标签提取标题
+  - 自动上传正文图片并替换为微信 URL
+  - 新增 `HtmlSubmitError` 和 `ImageUploadError` 异常类，提供清晰的错误信息
+  - 新增 `scripts/html_submitter.py` 模块
+  - 新增 `tests/test_html_submitter.py` 单元测试（22 个测试用例）
+
+- **与 markdown-to-wechat-html-skill 集成** - 支持 Markdown → HTML → 微信草稿的完整流程
+
 ## [0.2.0] - 2026-01-12
 
 ### 变更

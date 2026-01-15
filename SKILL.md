@@ -172,6 +172,31 @@ draft_id = dm.create_draft([article])
 publish_id = dm.publish_draft(draft_id)
 ```
 
+### 6. 提交 HTML 草稿（高级接口）
+
+一键提交 HTML 文章到草稿箱，自动处理图片上传：
+
+```python
+from scripts.html_submitter import submit_html_draft
+
+# 自动解析 HTML 中的图片、上传、替换 URL、创建草稿
+media_id = submit_html_draft(
+    html_path='article.preview.html',
+    cover_path='cover.png',
+    author='作者名',
+    digest='文章摘要'
+)
+print(f'草稿创建成功: {media_id}')
+```
+
+**特性：**
+- 自动从 `<title>` 提取标题（也可手动指定）
+- 自动解析 `<img src="...">` 中的本地图片路径
+- 支持 `file:///`、相对路径、绝对路径
+- 自动上传并替换为微信 URL
+
+**适用场景**：与 `markdown-to-wechat-html-skill` 配合使用，实现 Markdown → HTML → 微信草稿的完整流程。
+
 ## 脚本说明
 
 | 脚本 | 用途 |
@@ -180,6 +205,7 @@ publish_id = dm.publish_draft(draft_id)
 | `scripts/material_manager.py` | 素材管理（永久/临时） |
 | `scripts/draft_manager.py` | 草稿管理与发布 |
 | `scripts/stats_manager.py` | 数据统计（用户/图文/消息） |
+| `scripts/html_submitter.py` | HTML 提交（高级接口，自动处理图片） |
 
 ## API 限制
 
