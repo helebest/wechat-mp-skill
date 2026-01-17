@@ -5,7 +5,7 @@
 ```python
 article = {
     # 必填字段
-    "title": "文章标题",           # <=32字符
+    "title": "文章标题",           # <=64字符
     "content": "<p>正文HTML</p>",  # <2万字符, <1MB
     "thumb_media_id": "封面ID",    # 图文消息必填
     
